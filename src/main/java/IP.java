@@ -29,7 +29,6 @@ public class IP implements Comparable<IP>{
             if (intOctet < 0 || intOctet > 255)
                 throw new Exception("some octets are less than 0 or higher than 255: " + ip);
         }
-
     }
 
     private IP(int octet1,  int octet2, int octet3, int octet4) {
