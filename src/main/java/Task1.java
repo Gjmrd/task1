@@ -4,14 +4,12 @@ public class Task1 {
             try {
                 IP from = new IP(args[0]);
                 IP to = new IP(args[1]);
-
-                if (to.compareTo(from.increase()) > 0) {
-                    do {
+              
+                    while (to.compareTo(from.increase()) > 0) {
                         from = from.increase();
                         System.out.println(from.toString());
                     }
-                    while (to.compareTo(from.increase()) > 0);
-                }
+                
             } catch (Exception e) {
                 System.out.println("Something is wrong: " + e.getMessage());
             }
