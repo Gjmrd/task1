@@ -58,7 +58,7 @@ public class Task1Test {
     public void testIncrement() throws Exception {
         Assert.assertTrue(new IP("192.168.0.1").increase().equals(new IP("192.168.0.2")));
         Assert.assertTrue(new IP("192.168.0.255").increase().equals(new IP("192.168.1.0")));
-
+        Assert.assertTrue(new IP("192.168.255.255").increase().equals(new IP("192.169.0.0")));
     }
 
     @Test

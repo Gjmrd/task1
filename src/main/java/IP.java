@@ -40,20 +40,20 @@ public class IP implements Comparable<IP>{
     }
 
     public int compareTo(IP other) {
-        int comparsion = Integer.compare(this.octet1,other.octet1);
-        if (comparsion != 0)
-            return comparsion;
+        int comparison = Integer.compare(this.octet1,other.octet1);
+        if (comparison != 0)
+            return comparison;
 
-        comparsion = Integer.compare(this.octet2,other.octet2);
-        if (comparsion != 0)
-            return comparsion;
+        comparison = Integer.compare(this.octet2,other.octet2);
+        if (comparison != 0)
+            return comparison;
 
-        comparsion = Integer.compare(this.octet3,other.octet3);
-        if (comparsion != 0)
-            return comparsion;
+        comparison = Integer.compare(this.octet3,other.octet3);
+        if (comparison != 0)
+            return comparison;
 
-        comparsion = Integer.compare(this.octet4,other.octet4);
-        return comparsion;
+        comparison = Integer.compare(this.octet4,other.octet4);
+        return comparison;
     }
 
     IP increase() throws Exception {
