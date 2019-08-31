@@ -61,13 +61,13 @@ public class IP implements Comparable<IP>{
             return new IP(octet1, octet2, octet3, octet4 + 1);
 
         if (octet3 < 255)
-            return new IP(octet1, octet2, octet3 + 1, octet4);
+            return new IP(octet1, octet2, octet3 + 1, 0);
 
         if (octet2 < 255)
-            return new IP(octet1, octet2 + 1, octet3, octet4);
+            return new IP(octet1, octet2 + 1, 0, 0);
 
         if (octet1 < 255)
-            return new IP(octet1 + 1, octet2, octet3, octet4);
+            return new IP(octet1 + 1, 0, 0, 0);
 
         throw new Exception("Cannot increment this IP: " + this.toString());
     }
@@ -76,4 +76,19 @@ public class IP implements Comparable<IP>{
     public String toString() {
         return String.format("%d.%d.%d.%d", octet1, octet2, octet3, octet4);
     }
+
+
+    public boolean equals(IP other) {
+        if (octet1 != other.octet1)
+            return false;
+        if (octet2 != other.octet2)
+            return false;
+        if (octet3 != other.octet3)
+            return false;
+        if (octet4 != other.octet4)
+            return false;
+
+        return true;
+    }
+
 }
