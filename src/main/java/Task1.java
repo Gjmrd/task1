@@ -13,7 +13,6 @@ public class Task1 {
             } catch (Exception e) {
                 System.out.println("something is wrong: " + e.getMessage());
             }
-
         } else {
             System.out.println("invalid arguments");
         }

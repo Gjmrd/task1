@@ -56,14 +56,14 @@ public class Task1Test {
     }
 
     @Test
-    public void main() throws Exception {
+    public void main() {
         String[] arguments = new String[]{"192.168.0.1", "192.168.0.5"};
         Task1.main(arguments);
         Assert.assertEquals("192.168.0.2\r\n192.168.0.3\r\n192.168.0.4\r\n", outContent.toString());
     }
 
     @Test
-    public void mainWithWrongArgs() throws Exception {
+    public void mainWithWrongArgs() {
         String[] arguments = new String[]{"192.168.0.1"};
         Task1.main(arguments);
         Assert.assertEquals("invalid arguments\r\n", outContent.toString());
