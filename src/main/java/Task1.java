@@ -1,6 +1,6 @@
 public class Task1 {
     public static void main (String[] args) throws Exception{
-        if (args.length == 2) {
+        if (args.length < 2) {
             final long from = getLongFromIp(args[0]);
             final long to = getLongFromIp(args[1]);
 
