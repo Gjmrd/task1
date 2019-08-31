@@ -24,11 +24,12 @@ public class IP implements Comparable<IP>{
         }
 
 
-        for (int i = 0; i < 4; i++) {
-            int intOctet = Integer.parseInt(octets[i]);
-            if (intOctet < 0 || intOctet > 255)
-                throw new Exception("some octets are less than 0 or higher than 255: " + ip);
-        }
+        if (octet1 < 0 || octet1 > 255 ||
+            octet2 < 0 || octet2 > 255 ||
+            octet3 < 0 || octet3 > 255 ||
+            octet4 < 0 || octet4 > 255)
+            throw new Exception("some octets are less than 0 or higher than 255: " + ip);
+
     }
 
     private IP(int octet1,  int octet2, int octet3, int octet4) {
@@ -39,19 +40,19 @@ public class IP implements Comparable<IP>{
     }
 
     public int compareTo(IP other) {
-        int comparison = Integer.compare(this.octet1,other.octet1);
+        int comparison = Integer.compare(this.octet1, other.octet1);
         if (comparison != 0)
             return comparison;
 
-        comparison = Integer.compare(this.octet2,other.octet2);
+        comparison = Integer.compare(this.octet2, other.octet2);
         if (comparison != 0)
             return comparison;
 
-        comparison = Integer.compare(this.octet3,other.octet3);
+        comparison = Integer.compare(this.octet3, other.octet3);
         if (comparison != 0)
             return comparison;
 
-        comparison = Integer.compare(this.octet4,other.octet4);
+        comparison = Integer.compare(this.octet4, other.octet4);
         return comparison;
     }
 
