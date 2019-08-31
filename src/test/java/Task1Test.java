@@ -64,7 +64,7 @@ public class Task1Test {
     @Test
     public void printAllIpWithInvalidArgs() throws Exception {
         expectedException.expect(Exception.class);
-        expectedException.expectMessage("missing argument");
+        expectedException.expectMessage("argument is null");
         Task1.printAllIpBetween("192.168.0.1", null);
     }
 

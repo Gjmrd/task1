@@ -56,7 +56,7 @@ public class Task1 {
         long result = 0;
 
         if (ip == null) {
-            throw new Exception("missing argument");
+            throw new Exception("argument is null");
         }
 
         String[] parts = ip.split("\\.");
