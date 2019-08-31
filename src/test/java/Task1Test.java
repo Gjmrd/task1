@@ -25,12 +25,12 @@ public class Task1Test {
 
     @Test
     public void getIPFromLong() {
-        Assert.assertEquals(Task1.getIPFromLong(3232235521L), "192.168.0.1");
+        Assert.assertEquals(IPUtils.getIPFromLong(3232235521L), "192.168.0.1");
     }
 
     @Test
     public void getLongFromIp() throws Exception {
-        Assert.assertEquals(Task1.getLongFromIp("192.168.0.1"), 3232235521L);
+        Assert.assertEquals(IPUtils.getLongFromIp("192.168.0.1"), 3232235521L);
 
     }
 
@@ -38,26 +38,26 @@ public class Task1Test {
     public void invalidIpException() throws Exception{
         expectedException.expect(Exception.class);
         expectedException.expectMessage("invalid ip: 192.168.0" );
-        Task1.getLongFromIp("192.168.0");
+        IPUtils.getLongFromIp("192.168.0");
     }
 
     @Test
     public void invalidIpPartException() throws Exception {
         expectedException.expect(Exception.class);
         expectedException.expectMessage("invalid ip: 192.256.0.1");
-        Task1.getLongFromIp("192.256.0.1");
+        IPUtils.getLongFromIp("192.256.0.1");
     }
 
     @Test
     public void nonNumericIpPartException() throws Exception {
         expectedException.expect(Exception.class);
         expectedException.expectMessage("invalid ip: 192.256.absc.1");
-        Task1.getLongFromIp("192.256.absc.1");
+        IPUtils.getLongFromIp("192.256.absc.1");
     }
 
     @Test
     public void printAllIp() throws Exception {
-        Task1.printAllIpBetween("192.168.0.1","192.168.0.5");
+        IPUtils.printAllIpBetween("192.168.0.1","192.168.0.5");
         Assert.assertEquals("192.168.0.2\r\n192.168.0.3\r\n192.168.0.4\r\n", outContent.toString());
     }
 
@@ -65,7 +65,7 @@ public class Task1Test {
     public void printAllIpWithInvalidArgs() throws Exception {
         expectedException.expect(Exception.class);
         expectedException.expectMessage("argument is null");
-        Task1.printAllIpBetween("192.168.0.1", null);
+        IPUtils.printAllIpBetween("192.168.0.1", null);
     }
 
     @Test
