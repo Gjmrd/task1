@@ -2,20 +2,33 @@ public class Task1 {
     public static void main(String[] args) {
         if (args.length >= 2) {
             try {
-                final long from = getLongFromIp(args[0]);
-                final long to = getLongFromIp(args[1]);
-
-                if (to > (from + 1)) {
-                    for (long longIp = from + 1; longIp < to; longIp++) {
-                        System.out.println(getIPFromLong(longIp));
-                    }
-                }
+                printAllIpBetween(args[0], args[1]);
             } catch (Exception e) {
-                System.out.println("something is wrong: " + e.getMessage());
+                System.out.println("Something is wrong: " + e.getMessage());
             }
-        } else {
+        } else  {
             System.out.println("invalid arguments");
         }
+
+    }
+
+    /**
+     * Print all Ip between two ip in console
+     *
+     * @param ipFrom start ip
+     * @param ipTo end ip
+     * @throws Exception is arguments are null or invalid
+     */
+    static void printAllIpBetween(String ipFrom, String ipTo) throws Exception {
+        final long from = getLongFromIp(ipFrom);
+        final long to = getLongFromIp(ipTo);
+
+        if (to > (from + 1)) {
+            for (long longIp = from + 1; longIp < to; longIp++) {
+                System.out.println(getIPFromLong(longIp));
+            }
+        }
+
     }
 
     /**
@@ -33,12 +46,18 @@ public class Task1 {
     }
 
     /**
+     * Converts string ip to its integer representation
+     *
      * @param ip string representation of ip address
      * @return long int representation of ip address
      * @throws Exception if argument is invalid
      */
     static long getLongFromIp(final String ip) throws Exception {
         long result = 0;
+
+        if (ip == null) {
+            throw new Exception("missing argument");
+        }
 
         String[] parts = ip.split("\\.");
         if (parts.length != 4) {
