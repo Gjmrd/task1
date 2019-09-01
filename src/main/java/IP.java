@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,7 +15,6 @@ public class IP implements Comparable<IP> {
         if (octets.length != 4)
             throw new Exception("Invalid ip: " + ip);
 
-
         List<Integer> intOctets;
 
         try {
@@ -27,10 +25,8 @@ public class IP implements Comparable<IP> {
             throw new Exception("some octets are non-numeric: " + ip);
         }
 
-        for (Integer octet : intOctets) {
-            if (octet < 0 || octet > 255)
-                throw new Exception("some octets are less than 0 or higher than 255: " + ip);
-        }
+        if (!intOctets.stream().allMatch(octet -> octet >= 0 && octet <= 255))
+            throw new Exception("some octets are less than 0 or higher than 255: " + ip);
 
         octet1 = intOctets.get(0);
         octet2 = intOctets.get(1);
