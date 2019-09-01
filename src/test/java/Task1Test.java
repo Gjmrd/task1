@@ -61,6 +61,8 @@ public class Task1Test {
         Assert.assertTrue(new IP("192.168.255.255").increase().equals(new IP("192.169.0.0")));
     }
 
+
+
     @Test
     public void main() {
         String[] args = new String[] {"192.168.0.1","192.168.0.5"};

@@ -1,6 +1,8 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class IP implements Comparable<IP> {
 
@@ -34,7 +36,11 @@ public class IP implements Comparable<IP> {
         octet4 = intOctets.get(3);
     }
 
-    private IP(int octet1, int octet2, int octet3, int octet4) {
+    public IP(int octet1, int octet2, int octet3, int octet4) throws Exception {
+
+        if (!Stream.of(octet1, octet2, octet3, octet4).allMatch(octet -> octet >= 0 && octet <= 255))
+            throw new Exception(String.format("some octets are less than 0 or higher than 255: %d.%d.%d.%d", octet1, octet2, octet3, octet4));
+
         this.octet1 = octet1;
         this.octet2 = octet2;
         this.octet3 = octet3;
