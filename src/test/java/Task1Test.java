@@ -48,7 +48,7 @@ public class Task1Test {
     }
 
     @Test
-    public void unIncrementableIP() throws Exception {
+    public void unincrementableIP() throws Exception {
         expectedException.expect(Exception.class);
         expectedException.expectMessage("Cannot increment this IP: 255.255.255.255");
         IP ip = new IP("255.255.255.255");
