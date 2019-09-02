@@ -9,6 +9,7 @@ public class Task1Test {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
+    private final String lineSeparator = System.getProperty("line.separator");
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
@@ -67,14 +68,14 @@ public class Task1Test {
     public void main() {
         String[] args = new String[] {"192.168.0.1","192.168.0.5"};
         Task1.main(args);
-        Assert.assertEquals("192.168.0.2\r\n192.168.0.3\r\n192.168.0.4\r\n", outContent.toString());
+        Assert.assertEquals(String.format("192.168.0.2%s192.168.0.3%s192.168.0.4%s", lineSeparator, lineSeparator, lineSeparator), outContent.toString());
     }
 
     @Test
     public void mainWithInvalidArgs () throws Exception {
         String[] arguments = new String[] {"192.168.0.1"};
         Task1.main(arguments);
-        Assert.assertEquals("invalid arguments\r\n", outContent.toString());
+        Assert.assertEquals(String.format("invalid arguments%s", lineSeparator), outContent.toString());
     }
 
 }
