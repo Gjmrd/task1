@@ -7,7 +7,7 @@ public class Task1 {
         try {
             printIPBetween(new IP(args[0]), new IP(args[1]));
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Something is wrong: " + e.getMessage());
         }
     }
 

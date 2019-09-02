@@ -65,9 +65,10 @@ public class Task1Test {
 
 
     @Test
-    public void main() {
-        String[] args = new String[] {"192.168.0.1","192.168.0.5"};
-        Task1.main(args);
+    public void printIPBetween() throws Exception {
+        IP from = new IP("192.168.0.1");
+        IP to  = new IP("192.168.0.5");
+        Task1.printIPBetween(from, to);
         Assert.assertEquals(String.format("192.168.0.2%s192.168.0.3%s192.168.0.4%s", lineSeparator, lineSeparator, lineSeparator), outContent.toString());
     }
 
