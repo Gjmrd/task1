@@ -31,29 +31,29 @@ public class Task1Test {
     public void invalidIpException() throws Exception{
         expectedException.expect(Exception.class);
         expectedException.expectMessage("Invalid ip: 192.168.0" );
-        IP ip = new IP("192.168.0");
+        new IP("192.168.0");
     }
 
     @Test
     public void invalidIpPartException() throws Exception {
         expectedException.expect(Exception.class);
         expectedException.expectMessage("some octets are less than 0 or higher than 255: 192.256.0.1");
-        IP ip = new IP("192.256.0.1");
+        new IP("192.256.0.1");
     }
 
     @Test
     public void nonNumericIpPartException() throws Exception {
         expectedException.expect(Exception.class);
         expectedException.expectMessage("some octets are non-numeric: 192.255.absc.1");
-        IP ip = new IP("192.255.absc.1");
+        new IP("192.255.absc.1");
     }
 
     @Test
     public void unincrementableIP() throws Exception {
         expectedException.expect(Exception.class);
         expectedException.expectMessage("Cannot increment this IP: 255.255.255.255");
-        IP ip = new IP("255.255.255.255");
-        ip = ip.increase();
+        new IP("255.255.255.255").increase();
+        
     }
 
     @Test
