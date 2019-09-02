@@ -77,8 +77,6 @@ public class Task1Test {
         }};
         
         Assert.assertEquals(ips, expected);
-       // Assert.assertEquals(String.format("192.168.0.2%s192.168.0.3%s192.168.0.4%s", lineSeparator, lineSeparator, lineSeparator), outContent.toString());
-        
     }
 
     @Test
