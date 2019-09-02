@@ -17,10 +17,10 @@ public class Task1 {
     public static List<String> getAllIPBetween(IP from, IP to) throws Exception{
         List<String> resultList = new ArrayList<>();
 
-        IP current = from;
-        while (to.compareTo(current.increase()) > 0) {
-            current = current.increase();
+        IP current = from.increase();
+        while (to.compareTo(current) > 0) {
             resultList.add(current.toString());
+            current = current.increase();
         }
         return resultList;
     }
