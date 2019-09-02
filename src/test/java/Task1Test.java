@@ -2,7 +2,8 @@ import org.junit.*;
 import org.junit.rules.ExpectedException;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Task1Test {
@@ -68,8 +69,16 @@ public class Task1Test {
     public void printIPBetween() throws Exception {
         IP from = new IP("192.168.0.1");
         IP to  = new IP("192.168.0.5");
-        Task1.printIPBetween(from, to);
-        Assert.assertEquals(String.format("192.168.0.2%s192.168.0.3%s192.168.0.4%s", lineSeparator, lineSeparator, lineSeparator), outContent.toString());
+        List<String> ips =  Task1.getAllIPBetween(from, to);
+        List<String> expected = new ArrayList<String>() {{
+            add("192.168.0.2");
+            add("192.168.0.3");
+            add("192.168.0.4");
+        }};
+        
+        Assert.assertEquals(ips, expected);
+       // Assert.assertEquals(String.format("192.168.0.2%s192.168.0.3%s192.168.0.4%s", lineSeparator, lineSeparator, lineSeparator), outContent.toString());
+        
     }
 
     @Test
