@@ -5,15 +5,16 @@ public class Task1 {
             return;
         }
         try {
-            IP from = new IP(args[0]);
-            IP to = new IP(args[1]);
-
-            while (to.compareTo(from.increase()) > 0) {
-                from = from.increase();
-                System.out.println(from.toString());
-            }
+            printIPBetween(new IP(args[0]), new IP(args[1]));
         } catch (Exception e) {
-            System.out.println("Something is wrong: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    public static void printIPBetween(IP from, IP to) throws Exception{
+        while (to.compareTo(from.increase()) > 0) {
+            from = from.increase();
+            System.out.println(from.toString());
         }
     }
 }
