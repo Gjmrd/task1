@@ -17,7 +17,7 @@ public class Task1 {
     public static List<String> getAllIPBetween(IP from, IP to) throws Exception{
         List<String> resultList = new ArrayList<>();
 
-        if (from.equals(to))
+        if (to.compareTo(from) <= 0)
             return resultList;
 
         IP current = from.increase();
